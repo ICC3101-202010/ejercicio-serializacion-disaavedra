@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Ejercicio_POO
 {
+    [Serializable]
     class Persona
     {
         private String nombre;
@@ -12,7 +15,7 @@ namespace Ejercicio_POO
 
         private String edad;
 
-        Persona(String nombre, String apellido, String edad)
+        public Persona(String nombre, String apellido, String edad)
         {
             this.nombre = nombre;
 
