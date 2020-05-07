@@ -9,7 +9,8 @@ namespace Ejercicio_POO
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
+            Console.WriteLine("[1]Almacenar:");
+            Console.WriteLine("[2]Cargar:");
         }
 
         public void Almacenar()
@@ -24,9 +25,9 @@ namespace Ejercicio_POO
 
             Persona persona = new Persona(nombre, apellido, edad);
 
-            BinaryFormatter formateador = new BinaryFormatter();
+            IFormatter formateador = new BinaryFormatter();
 
-            Stream stream = new FileStream("Persona.per", FileMode.Create, FileMode.Write, FileMode.None);
+            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileMode.Write, FileMode.None);
 
             formateador.Serialize(stream, persona);
 
@@ -37,7 +38,11 @@ namespace Ejercicio_POO
         {
             BinaryFormatter formateador = new BinaryFormatter();
 
-            Stream stream = new FileStream("Persona.per", FileMode.Create, FileMode.Write, FileMode.None);
+            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileMode.Write, FileMode.None);
+
+            Persona persona = (Persona)formateador.Deserialize(stream);
+
+            stream.Close();
 
         }
     }
