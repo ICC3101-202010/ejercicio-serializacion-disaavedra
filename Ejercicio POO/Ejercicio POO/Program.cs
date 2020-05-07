@@ -9,11 +9,31 @@ namespace Ejercicio_POO
     {
         static void Main(string[] args)
         {
+            String eleccion;
+
             Console.WriteLine("[1]Almacenar:");
+
             Console.WriteLine("[2]Cargar:");
+
+            eleccion = Console.ReadLine();
+
+            switch (eleccion)
+            {
+                case "1":
+
+                    Almacenar();
+
+                    break;
+
+                case "2":
+
+                    Cargar();
+
+                    break;
+            }
         }
 
-        public void Almacenar()
+        static void Almacenar()
         {
             String nombre, apellido, edad;
 
@@ -34,7 +54,7 @@ namespace Ejercicio_POO
             stream.Close();
         }
 
-        public void Cargar()
+        static void Cargar()
         {
             BinaryFormatter formateador = new BinaryFormatter();
 
